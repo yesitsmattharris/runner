@@ -5,8 +5,7 @@ var rng = RandomNumberGenerator.new()
 var is_timer_running : bool = false
 var spawn_rate_min = 2.0
 var spawn_rate_max = 3.0
-var score : int = 0
-
+var has_difficulty_increased : float = false
 
 
 func spawn_crate():
@@ -29,7 +28,8 @@ func _process(delta):
 		spawn_crate()
 		is_timer_running = false
 	
-	if PlayerData.score == score + 10:
-		score = PlayerData.score
-		print(score)
-		increase_difficulty()
+	if PlayerData.score > 0:
+		if PlayerData.score % 10 == 0 and not has_difficulty_increased:
+			has_difficulty_increased = true
+			increase_difficulty()
+	

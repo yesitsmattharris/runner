@@ -9,4 +9,4 @@ func _physics_process(delta):
 	position.x -= VELOCITY
 	if (position.x < -5):
 		queue_free()
-		PlayerData.increment_score()
+		PlayerData.score += 1

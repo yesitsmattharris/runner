@@ -4,13 +4,7 @@ extends CanvasLayer
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Main/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Score.text = "Score: %s" % PlayerData.score
-	
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
+	get_parent().get_node("AudioStreamPlayer2D").play()
 
 func _on_button_play_pressed():
 	PlayerData.score = 0
